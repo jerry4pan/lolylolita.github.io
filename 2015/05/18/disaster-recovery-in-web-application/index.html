@@ -199,7 +199,7 @@
 <h3 id="快速恢复机制">快速恢复机制</h3><ul>
 <li>自动流控（如第二节所述，从自身和对后端调用两方面考虑）</li>
 </ul>
-<p>只有限流算法并不能做到自动，还需要在系统中引入反馈机制。举个例子，我们在servlet中添加一个filter，添加对request处理情况的周期统计。那么我们就可以通过统计数据，动态调整应用下一个时间段能够处理的请求数。当然这么考虑有些简单，但大体思路就是这样。</p>
+<p>只有限流算法并不能做到自动，还需要在系统中引入反馈机制。举个例子，我们在servlet中增加一个filter，对request处理情况作周期性统计。那么我们就可以通过统计数据，动态调整应用下一个时间段能够处理的请求数。当然这么考虑有些简单，但大体思路就是这样。</p>
 <p>如何做到单位时间只处理固定个数情况，可以考虑使用漏桶或者令牌桶模型。</p>
 <p>a、漏桶模型，桶有固定大小，桶底有洞，按一定速率漏掉水（即处理请求）。有新请求就相当于往桶里加水，满了就拒绝请求；</p>
 <p>b、令牌桶模型，与漏桶模型类似。按一定速率往桶中加入token，满了就不加了。有请求来，就拿走一个token，没token可拿了，就拒绝请求。guava的rateLimiter实现了这个算法，可以参考：<a href="http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/util/concurrent/RateLimiter.html。" target="_blank" rel="external">http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/util/concurrent/RateLimiter.html。</a></p>
@@ -302,14 +302,14 @@
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
